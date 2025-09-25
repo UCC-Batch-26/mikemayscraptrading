@@ -1,16 +1,46 @@
 import { Schema, model } from 'mongoose';
 
-const salesTransactionSchema = new Schema({
-  transactionType: {
-    type: String,
-    enum: [ 'In', 'Out' ],
+//Schema for each item sold in the transaction
+const itemSchema = new Schema({
+  itemId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Product'
+  },
+  qty: {
+    type: Number,
+    min: [1, 'Quantity must be at least 1'],
     required: true,
   },
-  qtyChange: {
+  unitPrice: {
     type: Number,
-    min: [1, 'Quantity change must be at least 1'],
+    min: [1, 'Unit price must be at least 1'],
     required: true,
-  }
+  },
+  totalPrice: {
+    type: Number,
+    min: [1, 'Total price must be at least 1'],
+    required: true,
+  },
+}, {
+  _id: false,
+});
+
+// Main schema for sales transactions
+const salesTransactionSchema = new Schema({
+  items: {
+    type: [itemSchema],
+    required: true,
+    validate: {
+      validator: function (itemsArray) {
+        const isArray = Array.isArray(itemsArray);
+        const hasItems = isArray && itemsArray.length > 0;
+        return hasItems;
+      },
+      message: 'Referenced product dos not exits.',
+    },
+  },
+
 }, {
   timestamps: true,
 });
