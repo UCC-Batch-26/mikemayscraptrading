@@ -1,6 +1,7 @@
 import { Schema, model } from 'mongoose';
 
 //Schema for each item sold in the transaction
+<<<<<<< HEAD
 const itemSchema = new Schema(
   {
     itemId: {
@@ -12,6 +13,45 @@ const itemSchema = new Schema(
       type: Number,
       min: [1, 'Quantity must be at least 1'],
       required: true,
+=======
+const itemSchema = new Schema({
+  itemId: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Product'
+  },
+  qty: {
+    type: Number,
+    min: [1, 'Quantity must be at least 1'],
+    required: true,
+  },
+  unitPrice: {
+    type: Number,
+    min: [1, 'Unit price must be at least 1'],
+    required: true,
+  },
+  totalPrice: {
+    type: Number,
+    min: [1, 'Total price must be at least 1'],
+    required: true,
+  },
+}, {
+  timestamps: true,
+});
+
+// Main schema for sales transactions
+const salesTransactionSchema = new Schema({
+  items: {
+    type: [itemSchema],
+    required: true,
+    validate: {
+      validator: function (itemsArray) {
+        const isArray = Array.isArray(itemsArray);
+        const hasItems = isArray && itemsArray.length > 0;
+        return hasItems;
+      },
+      message: 'Referenced product does not exists.',
+>>>>>>> 04e477e43156e67bb457f460dff90f6f2acbb55c
     },
   },
   {
