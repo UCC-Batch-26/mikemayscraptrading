@@ -17,7 +17,7 @@ const productSchema = new Schema(
   {
     _id: true,
     timestamps: true,
-  }
+  },
 );
 
 // Main schema for sales transactions
@@ -36,7 +36,7 @@ const salesTransactionSchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const salesTransaction = model('salesTransaction', salesTransactionSchema);
