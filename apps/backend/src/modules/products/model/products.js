@@ -37,11 +37,6 @@ const productSchema = new Schema({
     enum: ['kgs', 'pcs'],
     required: true,
   },
-  productStatus: {
-    type: String,
-    enum: ['In Stock', 'Sold Out'],
-    default: 'In Stock',
-  },
   description: {
     type: String,
     maxLength: 100,
