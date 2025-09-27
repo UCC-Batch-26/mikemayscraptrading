@@ -27,7 +27,7 @@ const productSchema = new Schema({
     type: Number,
     min: [1, 'Selling price must be at least 1'],
   },
-  qty: {
+  quantity: {
     type: Number,
     min: [1, 'Quantity must be at least 1'],
     required: true,
