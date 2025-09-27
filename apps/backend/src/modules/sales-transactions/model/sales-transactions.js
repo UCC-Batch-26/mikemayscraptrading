@@ -13,16 +13,6 @@ const itemSchema = new Schema(
       min: [1, 'Quantity must be at least 1'],
       required: true,
     },
-    unitPrice: {
-      type: Number,
-      min: [1, 'Unit price must be at least 1'],
-      required: true,
-    },
-    totalPrice: {
-      type: Number,
-      min: [1, 'Total price must be at least 1'],
-      required: true,
-    },
   },
   {
     _id: false,
