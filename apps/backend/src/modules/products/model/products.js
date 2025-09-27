@@ -22,12 +22,10 @@ const productSchema = new Schema({
   purchasePrice: {
     type: Number,
     min: [1, 'Purchase price must be at least 1'],
-    required: true,
   },
   sellingPrice: {
     type: Number,
     min: [1, 'Selling price must be at least 1'],
-    required: true,
   },
   qty: {
     type: Number,
