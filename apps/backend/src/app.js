@@ -1,4 +1,5 @@
 import { errorHandler } from '#modules/common/middleware/error-handler.js';
+import productRoutes from '#modules/products/routes.js';
 import sampleRoutes from '#modules/samples/routes.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -40,7 +41,8 @@ app.get('/ping', (req, res) => {
     message: 'PONG',
   });
 });
-
+// Product route
+app.use('/products', productRoutes);
 // Sample route
 app.use('/sample', sampleRoutes);
 
