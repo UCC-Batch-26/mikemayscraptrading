@@ -37,7 +37,7 @@ const salesTransactionSchema = new Schema({
         const hasItems = isArray && itemsArray.length > 0;
         return hasItems;
       },
-      message: 'Referenced product dos not exits.',
+      message: 'Referenced product does not exists.',
     },
   },
 
