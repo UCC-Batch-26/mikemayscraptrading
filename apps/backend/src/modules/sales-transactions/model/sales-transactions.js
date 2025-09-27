@@ -23,7 +23,7 @@ const itemSchema = new Schema({
     required: true,
   },
 }, {
-  _id: false,
+  timestamps: true,
 });
 
 // Main schema for sales transactions
