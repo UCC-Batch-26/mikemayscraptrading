@@ -12,10 +12,7 @@ const NavBar = ({ title = 'Inventory' }) => {
       </div>
 
       <div className="flex items-center justify-end w-1/3">
-        <button
-          className="text-sm text-yellow-600 hover:underline"
-          onClick={() => alert('Settings modal placeholder')}
-        >
+        <button className="text-sm text-yellow-600 hover:underline" onClick={() => alert('Settings modal placeholder')}>
           Settings
         </button>
       </div>

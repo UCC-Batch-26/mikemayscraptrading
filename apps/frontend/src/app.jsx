@@ -9,12 +9,10 @@ import { AddItemPage } from './modules/inventory/pages/inventory-add-page';
 import BaseLayout from './modules/common/components/BaseLayout.jsx';
 
 const router = createBrowserRouter([
-   {
+  {
     path: '/',
-    element: <BaseLayout/>,
-    children: [
-      { index: true, element: <HomePage /> },
-    ],
+    element: <BaseLayout />,
+    children: [{ index: true, element: <HomePage /> }],
   },
   {
     path: '/sample',
