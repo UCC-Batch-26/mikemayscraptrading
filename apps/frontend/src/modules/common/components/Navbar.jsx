@@ -8,7 +8,7 @@ const NavBar = ({ title = 'Inventory' }) => {
       </div>
 
       <div className="flex items-center justify-center w-1/3">
-        <h1 className="text-xl font-semibold truncate text-center">{title}</h1>
+        <h1 className="md:text-xl sm:text-sm text-xl font-semibold truncate text-center">{title}</h1>
       </div>
 
       <div className="flex items-center justify-end w-1/3">
