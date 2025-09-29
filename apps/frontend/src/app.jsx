@@ -4,6 +4,8 @@ import { SampleAddPage } from '@/modules/sample/pages/sample-add-page';
 import { SampleIndexPage } from '@/modules/sample/pages/sample-index-page';
 import { SampleViewPage } from '@/modules/sample/pages/sample-view-page';
 import { createBrowserRouter, RouterProvider } from 'react-router';
+import { InventoryLayout } from './modules/inventory/layouts/inventory-layout';
+import { AddItemPage } from './modules/inventory/pages/inventory-add-page';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,21 @@ const router = createBrowserRouter([
       {
         path: 'add',
         element: <SampleAddPage />,
+      },
+    ],
+  },
+  {
+    path: '/inventory',
+    element: <InventoryLayout />,
+    children: [
+      {
+        path: '',
+        index: true,
+        element: <SampleIndexPage />,
+      },
+      {
+        path: 'add',
+        element: <AddItemPage />,
       },
     ],
   },
