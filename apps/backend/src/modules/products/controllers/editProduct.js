@@ -17,9 +17,7 @@ export async function editProduct(req, res) {
     ];
 
     const updateData = Object.fromEntries(
-      allowedFields
-        .filter(field => req.body[field] !== undefined)
-        .map(field => [field, req.body[field]])
+      allowedFields.filter((field) => req.body[field] !== undefined).map((field) => [field, req.body[field]]),
     );
 
     if (Object.keys(updateData).length === 0) {
@@ -30,16 +28,15 @@ export async function editProduct(req, res) {
 
     // Attempt to update the product
     const updatedProduct = await Product.findByIdAndUpdate(id, updateData, {
-      new: true,           // Return the updated document
+      new: true, // Return the updated document
       runValidators: true, // Validate based on schema
-    }).orFail();            // Throw if not found
+    }).orFail(); // Throw if not found
 
     // Respond with updated product
     return res.status(200).json({
       message: 'Successfully updated product',
       data: updatedProduct,
     });
-
   } catch (error) {
     log('editProduct', 'Error updating product:', error);
 

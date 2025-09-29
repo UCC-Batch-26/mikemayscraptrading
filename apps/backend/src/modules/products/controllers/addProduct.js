@@ -3,25 +3,16 @@ import { log } from '#utils/log.js';
 
 export async function addProduct(req, res) {
   try {
-    const { 
-      name, 
-      image, 
-      category, 
-      purchasePrice, 
+    const { name, image, category, purchasePrice, sellingPrice, quantity, unit, description } = req.body;
+    const product = await Product.create({
+      name,
+      image,
+      category,
+      purchasePrice,
       sellingPrice,
       quantity,
       unit,
-      description
-    } = req.body;
-    const product = await Product.create({ 
-      name, 
-      image, 
-      category, 
-      purchasePrice, 
-      sellingPrice,
-      quantity,
-      unit,
-      description
+      description,
     });
 
     return res.status(201).json({
@@ -34,5 +25,5 @@ export async function addProduct(req, res) {
     return res.status(400).json({
       message: error?.message ?? 'Something went wrong while creating the product',
     });
-  };
+  }
 }

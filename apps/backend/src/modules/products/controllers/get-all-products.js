@@ -12,7 +12,7 @@ export async function getAllProducts(req, res) {
     log('getAllProducts', error);
 
     return res.status(400).json({
-      message: error?.message ?? 'Something went wrong retrieving all products.'
+      message: error?.message ?? 'Something went wrong retrieving all products.',
     });
   }
 }
