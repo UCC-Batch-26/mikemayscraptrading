@@ -6,6 +6,7 @@ import { SampleViewPage } from '@/modules/sample/pages/sample-view-page';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { InventoryLayout } from './modules/inventory/layouts/inventory-layout';
 import { AddItemPage } from './modules/inventory/pages/inventory-add-page';
+import ProductCard from './modules/inventory/components/product-card';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,15 @@ const router = createBrowserRouter([
       {
         path: 'add',
         element: <AddItemPage />,
+      },
+      {
+        path: 'product-card',
+        element: (
+          <>
+            <ProductCard />
+            <ProductCard.Loading />
+          </>
+        ),
       },
     ],
   },

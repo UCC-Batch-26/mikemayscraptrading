@@ -1,6 +1,5 @@
 import { Link } from 'react-router';
 import AddItemForm from '../components/add-item-form';
-import ProductCard from '../components/product-card';
 
 export function AddItemPage() {
   return (
@@ -12,7 +11,6 @@ export function AddItemPage() {
         </Link>
       </header>
       <AddItemForm />
-      <ProductCard />
     </div>
   );
 }
