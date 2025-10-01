@@ -1,4 +1,4 @@
-import { Product } from '../model/products.js';
+import { Product } from '#model/products.js';
 import { log } from '#utils/log.js';
 
 export async function deleteProduct(req, res) {

@@ -1,4 +1,4 @@
-import { Product } from '../model/products.js';
+import { Product } from '#model/products.js';
 import { log } from '#utils/log.js';
 
 export async function editProduct(req, res) {
@@ -26,13 +26,11 @@ export async function editProduct(req, res) {
       });
     }
 
-    // Attempt to update the product
     const updatedProduct = await Product.findByIdAndUpdate(id, updateData, {
-      new: true, // Return the updated document
-      runValidators: true, // Validate based on schema
-    }).orFail(); // Throw if not found
+      new: true, 
+      runValidators: true, 
+    }).orFail(); 
 
-    // Respond with updated product
     return res.status(200).json({
       message: 'Successfully updated product',
       data: updatedProduct,

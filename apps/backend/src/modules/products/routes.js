@@ -1,9 +1,9 @@
 import { Router } from 'express';
 import { getAllProducts } from './controllers/get-all-products.js';
 import { getProduct } from './controllers/get-product.js';
-import { editProduct } from './controllers/addProduct.js';
-import { addProduct } from './controllers/addProduct.js';
-import { deleteProduct } from './controllers/deleteProduct.js';
+import { editProduct } from './controllers/edit-product.js';
+import { addProduct } from './controllers/add-product.js';
+import { deleteProduct } from './controllers/delete-product.js';
 
 const router = new Router();
 
