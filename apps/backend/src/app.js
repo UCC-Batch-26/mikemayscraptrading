@@ -6,6 +6,7 @@ import express from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import process from 'node:process';
+import inventoryRoutes from '#modules/inventory-transactions/routes.js';
 import { db } from './db.js';
 
 const app = express();
@@ -40,6 +41,9 @@ app.get('/ping', (req, res) => {
     message: 'PONG',
   });
 });
+
+// Inventory route
+app.use('/inventory', inventoryRoutes);
 
 // Sample route
 app.use('/sample', sampleRoutes);
