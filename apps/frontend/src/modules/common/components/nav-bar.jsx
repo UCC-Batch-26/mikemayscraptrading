@@ -1,6 +1,4 @@
-import React from 'react';
-
-const NavBar = ({ title = 'Inventory' }) => {
+export function NavBar({ title = 'Inventory' }) {
   return (
     <header className="w-full h-16 px-4 py-2 flex items-center justify-between border-b border-gray-300 bg-white">
       <div className="flex items-center w-1/3">
@@ -18,6 +16,6 @@ const NavBar = ({ title = 'Inventory' }) => {
       </div>
     </header>
   );
-};
+}
 
 export default NavBar;

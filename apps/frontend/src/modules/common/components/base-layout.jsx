@@ -1,8 +1,7 @@
-import React from 'react';
-import NavBar from './Navbar';
+import NavBar from './nav-bar';
 import { Outlet } from 'react-router';
 
-const BaseLayout = () => {
+export function BaseLayout() {
   return (
     <div className="w-full h-svh bg-[#f1f1f1] flex flex-col">
       <NavBar title={'Inventory'} />
@@ -12,6 +11,4 @@ const BaseLayout = () => {
       </main>
     </div>
   );
-};
-
-export default BaseLayout;
+}
