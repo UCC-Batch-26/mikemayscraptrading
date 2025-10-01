@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router';
 
 const fallbackImage = 'https://placehold.co/400?text=No+Image';
 
-export default function ProductCard({ imageUrl, name, categoryName, quantity }) {
+export function ProductCard({ imageUrl, name, categoryName, quantity }) {
   const [imgSrc, setImgSrc] = useState(imageUrl || fallbackImage);
   const onClickEdit = () => {
     // @todo: for later implementation
@@ -11,6 +12,7 @@ export default function ProductCard({ imageUrl, name, categoryName, quantity }) 
   const onClickInventoryOut = () => {
     // @todo: for later implementation
   };
+
   return (
     <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center">
       <div className="grid grid-flow-col grid-rows-3 gap-4">
@@ -21,31 +23,31 @@ export default function ProductCard({ imageUrl, name, categoryName, quantity }) 
           className="w-40 h-40 object-cover rounded mb-3 row-span-3"
         />
         <div className="row-start-1 row-end-4">
-          <h3 className="text-3xl font-semibold">{name} Refrigerator</h3>
-          <p className="text-base text-black">{categoryName} Appliances</p>
-          <p className="text-lead text-8xl mt-1 font-bold">{quantity} 5</p>
+          <h3 className="text-3xl font-semibold">{name}</h3>
+          <p className="text-base text-black">{categoryName}</p>
+          <p className="text-lead text-8xl mt-1 font-bold">{quantity}</p>
         </div>
       </div>
 
       <div className="mt-4 flex justify-between gap-4">
-        <button
+        <Link
           onClick={onClickEdit}
           className="w-40 border-2 border-yellow-600 text-black font-semibold px-3 py-1 rounded-lg text-lg hover:bg-yellow-600 hover:text-white transition"
         >
           Edit
-        </button>
-        <button
+        </Link>
+        <Link
           onClick={onClickInventoryOut}
           className="w-40 border-2 border-red-800 text-black font-semibold px-3 py-1 rounded-lg text-lg hover:bg-red-800 hover:text-white transition"
         >
           Inventory Out
-        </button>
+        </Link>
       </div>
     </div>
   );
 }
 
-ProductCard.Loading = function LoadingCard() {
+export function ProductCardSkeleton() {
   return (
     <div className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center animate-pulse">
       <div className="grid grid-flow-col grid-rows-3 gap-4">
@@ -63,4 +65,4 @@ ProductCard.Loading = function LoadingCard() {
       </div>
     </div>
   );
-};
+}
