@@ -16,16 +16,6 @@ export async function editProduct(req, res) {
       'description',
     ];
 
-    const updateData = Object.fromEntries(
-      allowedFields.filter((field) => req.body[field] !== undefined).map((field) => [field, req.body[field]]),
-    );
-
-    if (Object.keys(updateData).length === 0) {
-      return res.status(400).json({
-        message: 'No valid fields provided for update.',
-      });
-    }
-
     const updatedProduct = await Product.findByIdAndUpdate(id, updateData, {
       new: true, 
       runValidators: true, 
