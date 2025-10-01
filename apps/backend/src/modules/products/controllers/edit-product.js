@@ -5,17 +5,6 @@ export async function editProduct(req, res) {
   try {
     const { id } = req.params;
 
-    const allowedFields = [
-      'name',
-      'image',
-      'category',
-      'purchasePrice',
-      'sellingPrice',
-      'quantity',
-      'unit',
-      'description',
-    ];
-
     const updatedProduct = await Product.findByIdAndUpdate(id, updateData, {
       new: true, 
       runValidators: true, 
