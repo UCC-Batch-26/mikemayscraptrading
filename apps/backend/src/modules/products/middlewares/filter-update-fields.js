@@ -11,8 +11,7 @@ export function filterUpdateFields(req, res, next) {
   ];
 
   const updateData = Object.fromEntries(
-    allowedFields.filter((field) => req.body[field] !== undefined)
-    .map((field) => [field, req.body[field]]),
+    allowedFields.filter((field) => req.body[field] !== undefined).map((field) => [field, req.body[field]]),
   );
 
   if (Object.keys(updateData).length === 0) {

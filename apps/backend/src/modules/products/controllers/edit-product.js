@@ -5,10 +5,10 @@ export async function editProduct(req, res) {
   try {
     const { id } = req.params;
 
-    const updatedProduct = await Product.findByIdAndUpdate(id, updateData, {
-      new: true, 
-      runValidators: true, 
-    }).orFail(); 
+    const updatedProduct = await Product.findByIdAndUpdate(id, req.updateData, {
+      new: true,
+      runValidators: true,
+    }).orFail();
 
     return res.status(200).json({
       message: 'Successfully updated product',

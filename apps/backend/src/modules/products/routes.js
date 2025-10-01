@@ -11,7 +11,7 @@ const router = new Router();
 router.get('/', getAllProducts);
 router.get('/:id', getProduct);
 router.post('/:id', addProduct);
-router.patch('/:id', filterUpdateFields,editProduct);
+router.patch('/:id', filterUpdateFields, editProduct);
 router.delete('/:id', deleteProduct);
 
 export default router;
