@@ -28,7 +28,6 @@ const productSchema = new Schema(
     },
     quantity: {
       type: Number,
-      min: [1, 'Quantity must be at least 1'],
       required: true,
     },
     unit: {
