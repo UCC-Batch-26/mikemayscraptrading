@@ -6,12 +6,13 @@ import { SampleViewPage } from '@/modules/sample/pages/sample-view-page';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { InventoryLayout } from './modules/inventory/layouts/inventory-layout';
 import { AddItemPage } from './modules/inventory/pages/inventory-add-page';
+import { BaseLayout } from './modules/common/components/base-layout';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
-    index: true,
+    element: <BaseLayout />,
+    children: [{ index: true, element: <HomePage /> }],
   },
   {
     path: '/sample',
