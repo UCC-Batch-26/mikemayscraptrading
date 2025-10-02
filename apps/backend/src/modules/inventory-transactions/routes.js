@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { addInventoryTransaction } from './controllers/add-inventory-transaction';
-import { getAllInventoryTransactions } from './controllers/get-all-inventory-transactions';
-import { getInventoryTransaction } from './controllers/get-inventory-transaction';
-import { deleteInventoryTransaction } from './controllers/delete-inventory-transaction';
-import { editInventoryTransaction } from './controllers/edit-inventory-transaction';
+import { addInventoryTransaction } from '#modules/inventory-transactions/controllers/add-inventory-transaction.js';
+import { getAllInventoryTransactions } from '#modules/inventory-transactions/controllers/get-all-inventory-transactions.js';
+import { getInventoryTransaction } from '#modules/inventory-transactions/controllers/get-inventory-transaction.js';
+import { deleteInventoryTransaction } from '#modules/inventory-transactions/controllers/delete-inventory-transaction.js';
+import { editInventoryTransaction } from '#modules/inventory-transactions/controllers/edit-inventory-transaction.js';
 import { filterInventoryTransaction } from '#modules/inventory-transactions/middlewares/filter-inventory-transaction-fields.js';
 
 const router = new Router();

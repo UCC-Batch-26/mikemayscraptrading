@@ -1,4 +1,4 @@
-import { InventoryTransaction } from '#models/inventory-transactions';
+import { InventoryTransaction } from '#modules/inventory-transactions/models/inventory-transactions.js';
 import { log } from '#utils/log.js';
 
 export async function getAllInventoryTransactions(req, res) {
