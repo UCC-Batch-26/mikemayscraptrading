@@ -1,4 +1,4 @@
-import { Product } from '#model/products.js';
+import { Product } from '#modules/products/models/product.js';
 import { log } from '#utils/log.js';
 
 export async function getAllProducts(req, res) {
