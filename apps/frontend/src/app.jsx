@@ -22,7 +22,7 @@ const router = createBrowserRouter([
           {
             path: '',
             index: true,
-            element: <InventoryIndexPage/>,
+            element: <InventoryIndexPage />,
           },
           {
             path: 'add',
