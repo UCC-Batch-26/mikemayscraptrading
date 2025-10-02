@@ -43,7 +43,6 @@ app.get('/ping', (req, res) => {
   });
 });
 
-
 // Inventory route
 app.use('/inventory', inventoryRoutes);
 
