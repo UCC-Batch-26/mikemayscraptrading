@@ -1,7 +1,6 @@
 import { errorHandler } from '#modules/common/middleware/error-handler.js';
 import productRoutes from '#modules/products/routes.js';
 import inventoryRoutes from '#modules/inventory-transactions/routes.js';
-import sampleRoutes from '#modules/samples/routes.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
@@ -42,11 +41,17 @@ app.get('/ping', (req, res) => {
     message: 'PONG',
   });
 });
+
+// Inventory route
+app.use('/inventory', inventoryRoutes);
+
+=======
 // Product route
 app.use('/products', productRoutes);
-// Sample route
-app.use('/sample', sampleRoutes);
-app.use('/inventory', inventoryRoutes);
+
+// Sales route
+
+
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
 
