@@ -22,7 +22,7 @@ const productSchema = new Schema(
 // Main schema for sales transactions
 const salesTransactionSchema = new Schema(
   {
-    items: {
+    products: {
       type: [productSchema],
       required: true,
       validate: {
