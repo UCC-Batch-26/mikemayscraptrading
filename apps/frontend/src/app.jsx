@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { InventoryLayout } from './modules/inventory/layouts/inventory-layout';
 import { AddItemPage } from './modules/inventory/pages/inventory-add-page';
 import { BaseLayout } from './modules/common/components/base-layout';
+import { InventoryIndexPage } from './modules/inventory/pages/inventory-index-page';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
           {
             path: '',
             index: true,
-            element: <SampleIndexPage />,
+            element: <InventoryIndexPage/>,
           },
           {
             path: 'add',
