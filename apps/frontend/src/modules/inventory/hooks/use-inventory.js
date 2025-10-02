@@ -57,7 +57,7 @@ export function useInventory() {
     try {
       // Handle FormData for file uploads or regular JSON
       const isFormData = payload instanceof FormData;
-      
+
       const requestOptions = {
         method: 'POST',
         body: isFormData ? payload : JSON.stringify(payload),
@@ -91,7 +91,7 @@ export function useInventory() {
     try {
       // Build query string from params
       const queryParams = new URLSearchParams();
-      
+
       Object.entries(params).forEach(([key, value]) => {
         if (value !== undefined && value !== null && value !== '') {
           queryParams.append(key, value);
@@ -100,7 +100,7 @@ export function useInventory() {
 
       const queryString = queryParams.toString();
       const url = queryString ? `${INVENTORY_URL}?${queryString}` : INVENTORY_URL;
-      
+
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -108,15 +108,18 @@ export function useInventory() {
       }
 
       const responseData = await response.json();
-      
+
       // Handle both direct items array and paginated response
       const data = responseData.items || responseData.data || responseData;
-      
-      dispatch({ type: ACTION_TYPE.SUCCESS, payload: {
-        items: data,
-        pagination: responseData.pagination || null,
-        total: responseData.total || data.length
-      }});
+
+      dispatch({
+        type: ACTION_TYPE.SUCCESS,
+        payload: {
+          items: data,
+          pagination: responseData.pagination || null,
+          total: responseData.total || data.length,
+        },
+      });
     } catch (error) {
       console.log('Failed Getting All Inventories Request:', error);
       dispatch({ type: ACTION_TYPE.FAILED, payload: error?.message ?? 'Something went wrong' });
@@ -158,7 +161,7 @@ export function useInventory() {
 
       // Handle FormData for file uploads or regular JSON
       const isFormData = payload instanceof FormData;
-      
+
       const requestOptions = {
         method: 'PUT',
         body: isFormData ? payload : JSON.stringify(payload),
@@ -246,28 +249,17 @@ export function useInventory() {
     }
   }
 
-  //return pattern to avoid re-render problems
-  return useCallback(() => ({
-    // Core CRUD operations
+  return {
     addInventory: useCallback(addInventory, []),
     allInventories: useCallback(allInventories, []),
     viewInventory: useCallback(viewInventory, []),
     updateInventory: useCallback(updateInventory, []),
     deleteInventory: useCallback(deleteInventory, []),
-    
-    // Additional inventory-specific operations
     updateInventoryStock: useCallback(updateInventoryStock, []),
-    
-    // State flags
     isPending: state.status === STATE_STATUS.PENDING,
     isSuccess: state.status === STATE_STATUS.SUCCESS,
     isFailed: state.status === STATE_STATUS.FAILED,
     isIdle: state.status === STATE_STATUS.IDLE,
-    
-    // State data
     ...state,
-  }), [
-    state.status,
-    state.data,
-  ])();
+  };
 }
