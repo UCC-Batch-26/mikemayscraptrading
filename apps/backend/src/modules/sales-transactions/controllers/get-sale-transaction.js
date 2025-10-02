@@ -7,7 +7,10 @@ export async function getSaleTransaction(req, res) {
   try {
     const saleTransaction = await SalesTransaction.findById(id).orFail();
 
-    return  res.status(200).json(sample);
+    return res.status(200).json({
+      message: 'Successfully retrieved sale transaction',
+      data: saleTransaction,
+    });
   } catch (error) {
     log('getSaleTransaction', 'Unable to retrieve sale transaction:', error);
 

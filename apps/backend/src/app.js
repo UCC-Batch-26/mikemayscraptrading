@@ -42,7 +42,7 @@ app.get('/ping', (req, res) => {
 });
 
 // Sample route
-app.use('/sales-transactions', salesTransactionRoutes;
+app.use('/sales-transactions', salesTransactionRoutes);
 
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);

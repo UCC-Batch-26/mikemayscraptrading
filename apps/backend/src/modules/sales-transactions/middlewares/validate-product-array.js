@@ -3,7 +3,7 @@ export function validateProductArrayExists(req, res, next) {
 
   if (!Array.isArray(products) || products.length === 0) {
     return res.status(400).json({
-      message: "The products array is required and cannot be empty.",
+      message: 'The products array is required and cannot be empty.',
     });
   }
 
