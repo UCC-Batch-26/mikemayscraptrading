@@ -1,5 +1,7 @@
 import { errorHandler } from '#modules/common/middleware/error-handler.js';
 import salesTransactionRoutes from '#modules/sales-transactions/routes.js';
+import productRoutes from '#modules/products/routes.js';
+import inventoryRoutes from '#modules/inventory-transactions/routes.js';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express from 'express';
@@ -43,6 +45,14 @@ app.get('/ping', (req, res) => {
 
 // Sample route
 app.use('/sales-transactions', salesTransactionRoutes);
+// Inventory route
+app.use('/inventory', inventoryRoutes);
+
+// Product route
+app.use('/products', productRoutes);
+
+// Sales route
+
 
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
