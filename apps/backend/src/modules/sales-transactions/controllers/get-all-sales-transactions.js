@@ -1,4 +1,4 @@
-import { salesTransaction } from '#sales-transactions/models/salesTransaction.js';
+import { salesTransaction } from '#sales-transactions/models/sales-transaction.js';
 import { log } from '#utils/log.js';
 
 export async function getAllSalesTransactions(req, res) {
