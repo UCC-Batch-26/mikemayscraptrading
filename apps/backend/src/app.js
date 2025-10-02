@@ -50,7 +50,6 @@ app.use('/products', productRoutes);
 
 // Sales route
 
-
 // Error handling middleware, MUST always be the last
 app.use(errorHandler);
 
