@@ -1,4 +1,4 @@
-export function filterInventoryTransactionFields(req, res, next) {
+export function filterInventoryTransaction(req, res, next) {
   const allowedFields = ['transactionType', 'quantityChange'];
 
   const updateData = Object.fromEntries(

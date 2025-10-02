@@ -1,4 +1,4 @@
-export function validateProductArrayExists(req, res, next) {
+export function validateProductArray(req, res, next) {
   const { products } = req.body;
 
   if (!Array.isArray(products) || products.length === 0) {
