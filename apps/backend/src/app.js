@@ -21,6 +21,10 @@ app.use(
     origin: (origin, callback) => {
       // eslint-disable-next-line
       // @todo: Add your whitelisted URL here
+      if(!origin) {
+        return callback(null, true);
+      }
+
       const whitelist = ['http://localhost:5173', 'https://yourproductionurl.com'];
       if (whitelist.indexOf(origin) === -1) {
         callback(new Error(`Not allowed by CORS: ${origin}`));
