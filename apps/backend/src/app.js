@@ -45,7 +45,6 @@ app.get('/ping', (req, res) => {
 // Inventory route
 app.use('/inventory', inventoryRoutes);
 
-=======
 // Product route
 app.use('/products', productRoutes);
 
