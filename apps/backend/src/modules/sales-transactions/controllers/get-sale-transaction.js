@@ -1,11 +1,11 @@
-import { SalesTransaction } from '#sales-transactions/models/sales-transaction.js';
+import { salesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
 import { log } from '#utils/log.js';
 
 export async function getSaleTransaction(req, res) {
   const { id } = req.params;
 
   try {
-    const saleTransaction = await SalesTransaction.findById(id).orFail();
+    const saleTransaction = await salesTransaction.findById(id).orFail();
 
     return res.status(200).json({
       message: 'Successfully retrieved sale transaction',
