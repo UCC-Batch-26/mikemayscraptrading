@@ -1,4 +1,4 @@
-import { SalesTransaction } from '#sales-transactions/models/sales-transaction.js';
+import { SalesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
 import { log } from '#utils/log.js';
 
 export async function deleteSalesTransaction(req, res) {

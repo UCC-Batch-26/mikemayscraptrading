@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { getAllSalesTransactions } from '#sales-transactions/controllers/get-all-sales-transactions.js';
-import { getSalesTransaction } from '#sales-transactions/controllers/get-sale-transaction.js';
-import { addSalesTransaction } from '#sales-transactions/controllers/add-sales-transaction.js';
-import { editSalesTransaction } from '#sales-transactions/controllers/edit-sales-transaction.js';
-import { deleteSalesTransaction } from '#sales-transactions/controllers/delete-sales-transaction.js';
-import { validateProductArray } from '#sales-transactions/middlewares/validate-product-array.js';
-import { validateProductItems } from '#sales-transactions/middlewares/validate-product-items.js';
+import { getAllSalesTransactions } from '#modules/sales-transactions/controllers/get-all-sales-transactions.js';
+import { getSalesTransaction } from '#modules/sales-transactions/controllers/get-sale-transaction.js';
+import { addSalesTransaction } from '#modules/sales-transactions/controllers/add-sales-transaction.js';
+import { editSalesTransaction } from '#modules/sales-transactions/controllers/edit-sales-transaction.js';
+import { deleteSalesTransaction } from '#modules/sales-transactions/controllers/delete-sales-transaction.js';
+import { validateProductArray } from '#modules/sales-transactions/middlewares/validate-product-array.js';
+import { validateProductItems } from '#modules/sales-transactions/middlewares/validate-product-items.js';
 
 const router = new Router();
 
