@@ -12,7 +12,24 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <BaseLayout />,
-    children: [{ index: true, element: <HomePage /> }],
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: '/inventory',
+        element: <InventoryLayout />,
+        children: [
+          {
+            path: '',
+            index: true,
+            element: <SampleIndexPage />,
+          },
+          {
+            path: 'add',
+            element: <AddItemPage />,
+          },
+        ],
+      },
+    ],
   },
   {
     path: '/sample',
@@ -30,21 +47,6 @@ const router = createBrowserRouter([
       {
         path: 'add',
         element: <SampleAddPage />,
-      },
-    ],
-  },
-  {
-    path: '/inventory',
-    element: <InventoryLayout />,
-    children: [
-      {
-        path: '',
-        index: true,
-        element: <SampleIndexPage />,
-      },
-      {
-        path: 'add',
-        element: <AddItemPage />,
       },
     ],
   },
