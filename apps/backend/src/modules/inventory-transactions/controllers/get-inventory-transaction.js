@@ -1,5 +1,5 @@
-import { InventoryTransaction } from "#models/inventory-transactions";
-import { log } from "#utils/log.js";
+import { InventoryTransaction } from '#models/inventory-transactions';
+import { log } from '#utils/log.js';
 
 export async function getInventoryTransaction(req, res) {
   const { id } = req.params;
@@ -21,7 +21,7 @@ export async function getInventoryTransaction(req, res) {
     }
 
     return res.status(statusCode).json({
-      error: error?.message ?? 'Unable to retrieve inventory transaction'
+      error: error?.message ?? 'Unable to retrieve inventory transaction',
     });
   }
 }

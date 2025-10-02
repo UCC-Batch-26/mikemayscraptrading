@@ -1,5 +1,5 @@
-import { InventoryTransaction } from "#models/inventory-transactions";
-import { log } from "#utils/log.js";
+import { InventoryTransaction } from '#models/inventory-transactions';
+import { log } from '#utils/log.js';
 
 export async function editInventoryTransaction(req, res) {
   const { id } = req.params;
