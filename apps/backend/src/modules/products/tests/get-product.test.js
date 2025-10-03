@@ -11,7 +11,15 @@ describe('getProduct Controller', () => {
   };
 
   it('should display the specific product', async () => {
-    const product = await Product.create({ name: faker.lorem.sentence() });
+    const product = await Product.create({
+      name: faker.commerce.productName().slice(0, 20),
+      category: 'Metal',
+      purchasePrice: 10,
+      sellingPrice: 15,
+      quantity: 100,
+      unit: 'kgs',
+      description: 'Sample product description',
+    });
     const createdProductId = product._id.toString();
     const response = await createTestServer(ROUTE, getProduct).get(ROUTE.path.replace(':id', createdProductId));
 

@@ -3,7 +3,6 @@ import { Product } from '#modules/products/models/product.js';
 import { createTestServer } from '#tests/test-utils.js';
 import { faker } from '@faker-js/faker';
 import { describe, it, expect, beforeEach } from 'vitest';
-import mongoose from 'mongoose';
 
 describe('editProduct Controller', () => {
   const ROUTE = {
@@ -16,23 +15,28 @@ describe('editProduct Controller', () => {
   beforeEach(async () => {
     await Product.deleteMany({});
     existingProduct = await Product.create({
-      name: faker.commerce.productName(),
+      name: faker.commerce.productName().slice(0, 20),
       category: 'Metal',
       purchasePrice: 10,
       sellingPrice: 15,
       quantity: 100,
-      unit: 'kg',
+      unit: 'kgs',
       description: 'Sample product',
     });
   });
 
+  const middlewareInjectUpdateData = (req, _res, next) => {
+    req.updateData = req.body;
+    next();
+  };
+
   it('should update an existing product successfully', async () => {
     const updateData = {
-      name: 'Updated Product Name',
+      name: 'Updated Product',
       sellingPrice: 20,
     };
 
-    const response = await createTestServer(ROUTE, editProduct)
+    const response = await createTestServer(ROUTE, [middlewareInjectUpdateData, editProduct])
       .patch(`/products/${existingProduct._id}`)
       .send(updateData);
 
@@ -43,9 +47,9 @@ describe('editProduct Controller', () => {
   });
 
   it('should return 404 when product does not exist', async () => {
-    const fakeId = new mongoose.Types.ObjectId();
+    const fakeId = faker.database.mongodbObjectId();
 
-    const response = await createTestServer(ROUTE, editProduct)
+    const response = await createTestServer(ROUTE, [middlewareInjectUpdateData, editProduct])
       .patch(`/products/${fakeId}`)
       .send({ name: 'New Name' });
 
@@ -54,7 +58,7 @@ describe('editProduct Controller', () => {
   });
 
   it('should return 400 when invalid update is sent', async () => {
-    const response = await createTestServer(ROUTE, editProduct)
+    const response = await createTestServer(ROUTE, [middlewareInjectUpdateData, editProduct])
       .patch(`/products/${existingProduct._id}`)
       .send({ sellingPrice: 'not-a-number' });
 
