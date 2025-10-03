@@ -43,5 +43,5 @@ Content-Type: application/json
 
 
 ### Delete inventory transaction by ID
-DELETE http://localhost:3000/inventory/68deb817befb244f00062604
+DELETE http://localhost:3000/inventory/68df4d8dbefb244f00062614
 Accept: application/json
