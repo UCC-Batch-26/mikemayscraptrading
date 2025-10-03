@@ -2,6 +2,7 @@ import { addInventoryTransaction } from '#modules/inventory-transactions/control
 import { InventoryTransaction } from '#modules/inventory-transactions/models/inventory-transactions.js';
 import { createTestServer } from '#tests/test-utils.js';
 import { describe, expect, it, beforeEach } from 'vitest';
+import { faker } from '@faker-js/faker';
 
 describe('addInventoryTransaction Controller', () => {
   const ROUTE = {
@@ -15,6 +16,7 @@ describe('addInventoryTransaction Controller', () => {
 
   it('should create an inventory transaction successfully', async () => {
     const transactionData = {
+      productId: faker.database.mongodbObjectId(),
       transactionType: 'In',
       quantityChange: 50,
     };
@@ -25,6 +27,7 @@ describe('addInventoryTransaction Controller', () => {
 
     expect(response.status).toBe(201);
     expect(response.body.message).toBe('Successfully created inventory transaction');
+    expect(response.body.data.productId).toBe(transactionData.productId);
     expect(response.body.data.transactionType).toBe(transactionData.transactionType);
     expect(response.body.data.quantityChange).toBe(transactionData.quantityChange);
   });
