@@ -17,7 +17,7 @@ export async function editInventoryTransaction(req, res) {
 
     await product.save();
 
-    const updated = await InventoryTransaction.findByIdAndUpdate(id, req.body, {
+    const updated = await InventoryTransaction.findByIdAndUpdate(id, req.updateData, {
       new: true,
       runValidators: true,
     }).orFail();
