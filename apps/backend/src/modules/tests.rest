@@ -1,3 +1,4 @@
+### PRODUCTS
 ### Add a new junk shop product
 POST http://localhost:3000/products
 Content-Type: application/json
@@ -61,4 +62,77 @@ Content-Type: application/json
 
 ### Delete a product by ID
 DELETE http://localhost:3000/products/68deb5f5befb244f000625f7
+
+
+
+
+
+### SALES
+### Create a sales transaction
+POST http://localhost:3000/sales-transactions
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "68deb602befb244f000625f9",
+      "quantity": 2
+    },
+    {
+      "productId": "68df53abbefb244f00062619",
+      "quantity": 1
+    }
+  ]
+}
+
+
+### Create a sales transaction
+POST http://localhost:3000/sales-transactions
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "68deb602befb244f000625f9",
+      "quantity": 7
+    },
+    {
+      "productId": "68df53abbefb244f00062619",
+      "quantity": 10
+    }
+  ]
+}
+
+
+### Get all sales transactions
+GET http://localhost:3000/sales-transactions
+Accept: application/json
+
+
+### Get a single sales transaction by ID
+GET http://localhost:3000/sales-transactions/68df53d1befb244f0006261c
+Accept: application/json
+
+
+### Update a sales transaction
+PATCH http://localhost:3000/sales-transactions/68df53d1befb244f0006261c
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "652fcabc1234567890abcd12",
+      "quantity": 5
+    },
+    {
+      "productId": "652fcabc1234567890abcd13",
+      "quantity": 2
+    }
+  ]
+}
+
+
+### Delete a sales transaction by ID
+DELETE http://localhost:3000/sales-transactions/68df53d1befb244f0006261c
+Accept: application/json
 
