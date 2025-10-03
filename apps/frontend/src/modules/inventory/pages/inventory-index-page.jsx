@@ -1,9 +1,9 @@
 import { Link } from 'react-router';
-import { EmptyState } from '../components/empty-state';
+import { InventoryList } from '../components/inventory-list';
 
 export function InventoryIndexPage() {
   return (
-    <div className="grid gap-4">
+    <div>
       <div className="flex justify-end mb-4">
         <Link
           to="/inventory/add"
@@ -12,7 +12,9 @@ export function InventoryIndexPage() {
           Add Item
         </Link>
       </div>
-      <EmptyState />
+      <div className="grid gap-4 justify-center">
+        <InventoryList />
+      </div>
     </div>
   );
 }
