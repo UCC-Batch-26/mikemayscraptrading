@@ -1,4 +1,4 @@
-import { salesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
+import { SalesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
 import { Product } from '#modules/products/models/product.js';
 import { log } from '#utils/log.js';
 
@@ -6,7 +6,7 @@ export async function deleteSalesTransaction(req, res) {
   const { id } = req.params;
 
   try {
-    const deletedTransaction = await salesTransaction.findByIdAndDelete(id).orFail();
+    const deletedTransaction = await SalesTransaction.findByIdAndDelete(id).orFail();
 
     for (const item of deletedTransaction.products) {
       const product = await Product.findById(item.productId);

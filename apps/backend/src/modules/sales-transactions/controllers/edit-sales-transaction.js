@@ -1,4 +1,4 @@
-import { salesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
+import { SalesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
 import { Product } from '#modules/products/models/product.js';
 import { log } from '#utils/log.js';
 
@@ -7,7 +7,7 @@ export async function editSalesTransaction(req, res) {
   const { products } = req.body;
 
   try {
-    const existingTransaction = await salesTransaction.findById(id).orFail();
+    const existingTransaction = await SalesTransaction.findById(id).orFail();
 
     for (const item of existingTransaction.products) {
       const product = await Product.findById(item.productId);
@@ -33,7 +33,7 @@ export async function editSalesTransaction(req, res) {
       await product.save();
     }
 
-    const updatedTransaction = await salesTransaction
+    const updatedTransaction = await SalesTransaction
       .findByIdAndUpdate(id, { products }, { new: true, runValidators: true })
       .orFail();
 
