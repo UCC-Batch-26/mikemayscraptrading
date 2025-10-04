@@ -36,7 +36,7 @@ GET http://localhost:3000/products
 
 
 ### Get a single product by ID
-GET http://localhost:3000/products/68deb602befb244f000625f9
+GET http://localhost:3000/products/68df53abbefb244f00062619
 
 
 
@@ -62,6 +62,32 @@ Content-Type: application/json
 
 ### Delete a product by ID
 DELETE http://localhost:3000/products/68deb5f5befb244f000625f7
+
+
+
+### Inventory Transactions
+### Create Inventory Transaction
+POST http://localhost:3000/inventory/
+Content-Type: application/json
+
+{
+  "productId": "68df53abbefb244f00062619",
+  "transactionType": "In",
+  "quantityChange": 10
+}
+
+
+### Get All Inventory Transactions
+GET http://localhost:3000/inventory
+
+
+
+### Get Inventory Transaction by ID
+GET http://localhost:3000/inventory/68e097f3d535d004450afccf
+
+
+### Delete Inventory Transaction
+DELETE http://localhost:3000/inventory/68e097f3d535d004450afccf
 
 
 
