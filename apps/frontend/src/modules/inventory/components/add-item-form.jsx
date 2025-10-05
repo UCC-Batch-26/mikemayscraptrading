@@ -92,28 +92,14 @@ export default function AddItemForm() {
             <label htmlFor="buyPrice" className="sr-only">
               Buy Price
             </label>
-            <Input
-              id="buyPrice"
-              name="buyPrice"
-              type="number"
-              placeholder="Buy Price *"
-              required
-              min={0}
-              step="any"
+            <Input id="buyPrice" name="buyPrice" type="number" placeholder="Buy Price" min={0} step="any"
             />
           </div>
           <div className="w-full">
             <label htmlFor="sellPrice" className="sr-only">
               Sell Price
             </label>
-            <Input
-              id="sellPrice"
-              name="sellPrice"
-              type="number"
-              placeholder="Sell Price *"
-              required
-              min={0}
-              step="any"
+            <Input id="sellPrice" name="sellPrice" type="number" placeholder="Sell Price" min={0} step="any"
             />
           </div>
         </div>
