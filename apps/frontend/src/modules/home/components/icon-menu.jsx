@@ -20,7 +20,7 @@ export function IconMenu() {
             to={to}
             className="flex flex-col items-center justify-center p-6 rounded-xl bg-white shadow hover:bg-gray-100 transition"
           >
-            <Icon className="w-12 h-12 text-yellow-600 mb-3" />
+            <Icon className="w-16 h-16 text-yellow-600 mb-3" />
             <span className="text-gray-800 font-medium">{label}</span>
           </Link>
         );
