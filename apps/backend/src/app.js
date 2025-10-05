@@ -25,7 +25,7 @@ app.use(
         return callback(null, true);
       }
 
-      const whitelist = ['http://localhost:5173', 'https://yourproductionurl.com'];
+      const whitelist = ['http://localhost:5173', 'https://www.mikemayscraptrading.com/'];
       if (whitelist.indexOf(origin) === -1) {
         callback(new Error(`Not allowed by CORS: ${origin}`));
       } else {
