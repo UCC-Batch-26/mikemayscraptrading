@@ -38,4 +38,4 @@ const salesTransactionSchema = new Schema(
   },
 );
 
-export const salesTransaction = model('salesTransaction', salesTransactionSchema);
+export const SalesTransaction = model('salesTransaction', salesTransactionSchema);
