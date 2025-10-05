@@ -7,6 +7,11 @@ export const TransactionType = {
 
 const inventoryTransactionSchema = new Schema(
   {
+    productId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Product',
+      required: true,
+    },
     transactionType: {
       type: String,
       enum: Object.values(TransactionType),
