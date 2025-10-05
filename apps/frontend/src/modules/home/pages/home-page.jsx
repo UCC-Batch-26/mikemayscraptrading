@@ -16,7 +16,7 @@ export function HomePage() {
       <div className="text-center">Backend Connection: {status}</div>
 
       <div className="flex flex-col items-center justify-center space-y-4">
-        <IconMenu icon={ FileCog } title='Inventory' />
+        <IconMenu icon={FileCog} title="Inventory" />
         <TodaysRevenue revenue={50000} />
       </div>
     </div>
