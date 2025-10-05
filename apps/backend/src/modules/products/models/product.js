@@ -22,9 +22,11 @@ const productSchema = new Schema(
     },
     purchasePrice: {
       type: Number,
+      default: 0,
     },
     sellingPrice: {
       type: Number,
+      default: 0,
     },
     quantity: {
       type: Number,

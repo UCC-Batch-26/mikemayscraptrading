@@ -72,10 +72,50 @@ export default function AddItemForm() {
         </div>
 
         <div>
-          <label htmlFor="price" className="sr-only">
-            Price
+          <label htmlFor="category" className="sr-only">
+            Category
           </label>
-          <Input id="price" name="price" type="number" placeholder="Price *" required min={0} step="any" />
+          <select
+            id="category" name="category"
+            required className="w-full px-3 py-3 border rounded-md focus:outline-none focus:ring focus:border-yellow-500" defaultValue=""
+          >
+            <option value="" disabled>
+              Unit *
+            </option>
+            <option value="kgs">kgs</option>
+            <option value="pcs">pcs</option>
+          </select>
+        </div>
+
+        <div className="flex gap-2">
+          <div className="w-full">
+            <label htmlFor="buyPrice" className="sr-only">
+              Buy Price
+            </label>
+            <Input
+              id="buyPrice"
+              name="buyPrice"
+              type="number"
+              placeholder="Buy Price *"
+              required
+              min={0}
+              step="any"
+            />
+          </div>
+          <div className="w-full">
+            <label htmlFor="sellPrice" className="sr-only">
+              Sell Price
+            </label>
+            <Input
+              id="sellPrice"
+              name="sellPrice"
+              type="number"
+              placeholder="Sell Price *"
+              required
+              min={0}
+              step="any"
+            />
+          </div>
         </div>
 
         <div>
