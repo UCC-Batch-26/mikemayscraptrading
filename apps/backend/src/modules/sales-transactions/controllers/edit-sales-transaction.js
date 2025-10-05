@@ -33,9 +33,11 @@ export async function editSalesTransaction(req, res) {
       await product.save();
     }
 
-    const updatedTransaction = await SalesTransaction
-      .findByIdAndUpdate(id, { products }, { new: true, runValidators: true })
-      .orFail();
+    const updatedTransaction = await SalesTransaction.findByIdAndUpdate(
+      id,
+      { products },
+      { new: true, runValidators: true },
+    ).orFail();
 
     return res.status(200).json({
       message: 'Sales transaction updated successfully and product quantities adjusted.',

@@ -34,8 +34,7 @@ describe('getSaleTransaction Controller', () => {
   });
 
   it('should return a single sales transaction', async () => {
-    const response = await createTestServer(ROUTE, getSalesTransaction)
-      .get(`/sales/${transaction._id}`);
+    const response = await createTestServer(ROUTE, getSalesTransaction).get(`/sales/${transaction._id}`);
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe('Successfully retrieved sale transaction');
@@ -45,16 +44,14 @@ describe('getSaleTransaction Controller', () => {
   it('should return 404 for non-existent transaction', async () => {
     const fakeId = '652ffbe1e173ab7c7f000000';
 
-    const response = await createTestServer(ROUTE, getSalesTransaction)
-      .get(`/sales/${fakeId}`);
+    const response = await createTestServer(ROUTE, getSalesTransaction).get(`/sales/${fakeId}`);
 
     expect(response.status).toBe(404);
     expect(response.body.error).toBeTruthy();
   });
 
   it('should return 400 for invalid ID', async () => {
-    const response = await createTestServer(ROUTE, getSalesTransaction)
-      .get('/sales/invalid-id');
+    const response = await createTestServer(ROUTE, getSalesTransaction).get('/sales/invalid-id');
 
     expect(response.status).toBe(400);
     expect(response.body.error).toBeTruthy();

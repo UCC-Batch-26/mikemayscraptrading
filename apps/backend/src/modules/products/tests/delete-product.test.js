@@ -26,8 +26,7 @@ describe('deleteProduct Controller', () => {
   });
 
   it('should delete the product successfully', async () => {
-    const response = await createTestServer(ROUTE, deleteProduct)
-      .delete(`/products/${product._id}`);
+    const response = await createTestServer(ROUTE, deleteProduct).delete(`/products/${product._id}`);
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe('Product successfully deleted');
@@ -39,16 +38,14 @@ describe('deleteProduct Controller', () => {
   it('should return 404 if product does not exist', async () => {
     const nonExistentId = faker.database.mongodbObjectId();
 
-    const response = await createTestServer(ROUTE, deleteProduct)
-      .delete(`/products/${nonExistentId}`);
+    const response = await createTestServer(ROUTE, deleteProduct).delete(`/products/${nonExistentId}`);
 
     expect(response.status).toBe(404);
     expect(response.body.message).toBe('Product not found');
   });
 
   it('should return 400 if ID is invalid', async () => {
-    const response = await createTestServer(ROUTE, deleteProduct)
-      .delete('/products/invalid-id');
+    const response = await createTestServer(ROUTE, deleteProduct).delete('/products/invalid-id');
 
     expect(response.status).toBe(400);
     expect(response.body.message).toBeTruthy();

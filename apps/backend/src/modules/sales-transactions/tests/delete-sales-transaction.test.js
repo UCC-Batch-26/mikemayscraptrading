@@ -37,8 +37,7 @@ describe('deleteSalesTransaction Controller', () => {
   });
 
   it('should delete the transaction and restore product quantity', async () => {
-    const response = await createTestServer(ROUTE, deleteSalesTransaction)
-      .delete(`/sales/${transaction._id}`);
+    const response = await createTestServer(ROUTE, deleteSalesTransaction).delete(`/sales/${transaction._id}`);
 
     const updatedProduct = await Product.findById(product._id);
     const deleted = await SalesTransaction.findById(transaction._id);
@@ -52,16 +51,14 @@ describe('deleteSalesTransaction Controller', () => {
   it('should return 404 if transaction not found', async () => {
     const fakeId = '652ffbe1e173ab7c7f000000';
 
-    const response = await createTestServer(ROUTE, deleteSalesTransaction)
-      .delete(`/sales/${fakeId}`);
+    const response = await createTestServer(ROUTE, deleteSalesTransaction).delete(`/sales/${fakeId}`);
 
     expect(response.status).toBe(404);
     expect(response.body.message).toBeTruthy();
   });
 
   it('should return 400 for invalid ID format', async () => {
-    const response = await createTestServer(ROUTE, deleteSalesTransaction)
-      .delete('/sales/invalid-id');
+    const response = await createTestServer(ROUTE, deleteSalesTransaction).delete('/sales/invalid-id');
 
     expect(response.status).toBe(400);
     expect(response.body.message).toBeTruthy();

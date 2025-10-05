@@ -30,8 +30,7 @@ describe('getAllInventoryTransactions Controller', () => {
 
     await InventoryTransaction.insertMany(sampleTransactions);
 
-    const response = await createTestServer(ROUTE, getAllInventoryTransactions)
-      .get(ROUTE.path);
+    const response = await createTestServer(ROUTE, getAllInventoryTransactions).get(ROUTE.path);
 
     expect(response.status).toBe(200);
     expect(response.body.data.length).toBe(2);
@@ -42,10 +41,11 @@ describe('getAllInventoryTransactions Controller', () => {
   it('should return 400 on error', async () => {
     // Simulate error by mocking InventoryTransaction.find to throw
     const originalFind = InventoryTransaction.find;
-    InventoryTransaction.find = () => { throw new Error('Forced error'); };
+    InventoryTransaction.find = () => {
+      throw new Error('Forced error');
+    };
 
-    const response = await createTestServer(ROUTE, getAllInventoryTransactions)
-      .get(ROUTE.path);
+    const response = await createTestServer(ROUTE, getAllInventoryTransactions).get(ROUTE.path);
 
     expect(response.status).toBe(400);
     expect(response.body.message).toBe('Forced error');

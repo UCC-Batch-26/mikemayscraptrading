@@ -37,8 +37,7 @@ describe('getAllSalesTransactions Controller', () => {
   });
 
   it('should return all sales transactions', async () => {
-    const response = await createTestServer(ROUTE, getAllSalesTransactions)
-      .get(ROUTE.path);
+    const response = await createTestServer(ROUTE, getAllSalesTransactions).get(ROUTE.path);
 
     expect(response.status).toBe(200);
     expect(Array.isArray(response.body.data)).toBe(true);

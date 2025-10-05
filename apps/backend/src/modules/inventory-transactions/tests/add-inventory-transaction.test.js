@@ -36,9 +36,7 @@ describe('addInventoryTransaction Controller', () => {
       quantityChange: 50,
     };
 
-    const response = await createTestServer(ROUTE, addInventoryTransaction)
-      .post(ROUTE.path)
-      .send(transactionData);
+    const response = await createTestServer(ROUTE, addInventoryTransaction).post(ROUTE.path).send(transactionData);
 
     const updatedProduct = await Product.findById(product._id);
 
@@ -49,9 +47,7 @@ describe('addInventoryTransaction Controller', () => {
   });
 
   it('should return 400 when required fields are missing', async () => {
-    const response = await createTestServer(ROUTE, addInventoryTransaction)
-      .post(ROUTE.path)
-      .send({});
+    const response = await createTestServer(ROUTE, addInventoryTransaction).post(ROUTE.path).send({});
 
     expect(response.status).toBe(400);
     expect(response.body.message).toBeTruthy();

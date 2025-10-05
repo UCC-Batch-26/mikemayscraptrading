@@ -21,7 +21,7 @@ app.use(
     origin: (origin, callback) => {
       // eslint-disable-next-line
       // @todo: Add your whitelisted URL here
-      if(!origin) {
+      if (!origin) {
         return callback(null, true);
       }
 

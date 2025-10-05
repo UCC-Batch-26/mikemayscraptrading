@@ -38,9 +38,7 @@ describe('addSalesTransaction Controller', () => {
       ],
     };
 
-    const response = await createTestServer(ROUTE, addSalesTransaction)
-      .post(ROUTE.path)
-      .send(data);
+    const response = await createTestServer(ROUTE, addSalesTransaction).post(ROUTE.path).send(data);
 
     const updatedProduct = await Product.findById(product._id);
     const createdTransaction = await SalesTransaction.findOne();
@@ -62,9 +60,7 @@ describe('addSalesTransaction Controller', () => {
       ],
     };
 
-    const response = await createTestServer(ROUTE, addSalesTransaction)
-      .post(ROUTE.path)
-      .send(data);
+    const response = await createTestServer(ROUTE, addSalesTransaction).post(ROUTE.path).send(data);
 
     expect(response.status).toBe(400);
     expect(response.body.message).toContain('not found');
@@ -80,9 +76,7 @@ describe('addSalesTransaction Controller', () => {
       ],
     };
 
-    const response = await createTestServer(ROUTE, addSalesTransaction)
-      .post(ROUTE.path)
-      .send(data);
+    const response = await createTestServer(ROUTE, addSalesTransaction).post(ROUTE.path).send(data);
 
     expect(response.status).toBe(400);
     expect(response.body.message).toContain('Insufficient quantity');

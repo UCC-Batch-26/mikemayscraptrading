@@ -23,8 +23,9 @@ describe('getInventoryTransaction Controller', () => {
   });
 
   it('should retrieve an inventory transaction successfully', async () => {
-    const response = await createTestServer(ROUTE, getInventoryTransaction)
-      .get(`/inventory-transactions/${existingTransaction._id}`);
+    const response = await createTestServer(ROUTE, getInventoryTransaction).get(
+      `/inventory-transactions/${existingTransaction._id}`,
+    );
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe('Successfully retrieved inventory transaction');
@@ -34,8 +35,7 @@ describe('getInventoryTransaction Controller', () => {
   it('should return 404 when inventory transaction does not exist', async () => {
     const fakeId = faker.database.mongodbObjectId();
 
-    const response = await createTestServer(ROUTE, getInventoryTransaction)
-      .get(`/inventory-transactions/${fakeId}`);
+    const response = await createTestServer(ROUTE, getInventoryTransaction).get(`/inventory-transactions/${fakeId}`);
 
     expect(response.status).toBe(404);
     expect(response.body.error).toBeTruthy();
@@ -44,8 +44,7 @@ describe('getInventoryTransaction Controller', () => {
   it('should return 400 on invalid id format', async () => {
     const invalidId = '123';
 
-    const response = await createTestServer(ROUTE, getInventoryTransaction)
-      .get(`/inventory-transactions/${invalidId}`);
+    const response = await createTestServer(ROUTE, getInventoryTransaction).get(`/inventory-transactions/${invalidId}`);
 
     expect(response.status).toBe(400);
     expect(response.body.error).toBeTruthy();

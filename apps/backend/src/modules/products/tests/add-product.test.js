@@ -21,9 +21,7 @@ describe('addProduct Controller', () => {
   };
 
   it('should create a new product successfully', async () => {
-    const response = await createTestServer(ROUTE, addProduct)
-      .post(ROUTE.path)
-      .send(validProductData);
+    const response = await createTestServer(ROUTE, addProduct).post(ROUTE.path).send(validProductData);
 
     expect(response.status).toBe(201);
     expect(response.body.message).toBe('Successfully created product');
@@ -37,9 +35,7 @@ describe('addProduct Controller', () => {
   });
 
   it('should return 400 when name is missing', async () => {
-    const response = await createTestServer(ROUTE, addProduct)
-      .post(ROUTE.path)
-      .send({});
+    const response = await createTestServer(ROUTE, addProduct).post(ROUTE.path).send({});
 
     expect(response.status).toBe(400);
     expect(response.body.message).toBeTruthy();

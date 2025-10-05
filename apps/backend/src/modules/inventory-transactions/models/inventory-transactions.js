@@ -25,7 +25,7 @@ const inventoryTransactionSchema = new Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export const InventoryTransaction = model('InventoryTransaction', inventoryTransactionSchema);
