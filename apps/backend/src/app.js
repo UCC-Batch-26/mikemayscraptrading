@@ -15,13 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 app.set('port', PORT);
 
-app.get('/ping', (_, res) => {
-  res.status(200).json({
-    message: 'PONG',
-  });
-});
-
-// All Global middleware
+// Register CORS middleware first
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -38,6 +32,14 @@ app.use(
     },
   }),
 );
+
+app.get('/ping', (_, res) => {
+  res.status(200).json({
+    message: 'PONG',
+  });
+});
+
+// All Global middleware
 app.use(bodyParser.json());
 app.use(helmet());
 app.use(morgan('combined'));
