@@ -89,17 +89,17 @@ export default function AddItemForm() {
 
         <div className="flex gap-2">
           <div className="w-full">
-            <label htmlFor="buyPrice" className="sr-only">
+            <label htmlFor="purchasePrice" className="sr-only">
               Buy Price
             </label>
-            <Input id="buyPrice" name="buyPrice" type="number" placeholder="Buy Price" min={0} step="any"
+            <Input id="purchasePrice" name="purchasePrice" type="number" placeholder="Buy Price" min={0} step="any"
             />
           </div>
           <div className="w-full">
-            <label htmlFor="sellPrice" className="sr-only">
+            <label htmlFor="sellingPrice" className="sr-only">
               Sell Price
             </label>
-            <Input id="sellPrice" name="sellPrice" type="number" placeholder="Sell Price" min={0} step="any"
+            <Input id="sellingPrice" name="sellingPrice" type="number" placeholder="Sell Price" min={0} step="any"
             />
           </div>
         </div>
@@ -118,13 +118,13 @@ export default function AddItemForm() {
         </div>
 
         <div>
-          <label htmlFor="photo" className="sr-only">
+          <label htmlFor="image" className="sr-only">
             Upload Photo
           </label>
           <input
-            id="photo"
-            name="photo"
-            type="file"
+            id="image"
+            name="image"
+            type="text"
             accept="image/*"
             className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           />

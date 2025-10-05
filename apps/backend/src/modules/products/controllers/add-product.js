@@ -8,9 +8,9 @@ export async function addProduct(req, res) {
       name,
       image,
       category,
-      purchasePrice,
-      sellingPrice,
-      quantity,
+      purchasePrice: Number(purchasePrice),
+      sellingPrice: Number(sellingPrice),
+      quantity: Number(quantity),
       unit,
       description,
     });
