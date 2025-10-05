@@ -1,18 +1,18 @@
-import { salesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
+import { SalesTransaction } from '#modules/sales-transactions/models/sales-transaction.js';
 import { log } from '#utils/log.js';
 
-export async function getSaleTransaction(req, res) {
+export async function getSalesTransaction(req, res) {
   const { id } = req.params;
 
   try {
-    const saleTransaction = await salesTransaction.findById(id).orFail();
+    const salesTransaction = await SalesTransaction.findById(id).orFail();
 
     return res.status(200).json({
       message: 'Successfully retrieved sale transaction',
-      data: saleTransaction,
+      data: salesTransaction,
     });
   } catch (error) {
-    log('getSaleTransaction', 'Unable to retrieve sale transaction:', error);
+    log('getSalesTransaction', 'Unable to retrieve sale transaction:', error);
 
     let statusCode = 400;
 

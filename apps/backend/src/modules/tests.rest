@@ -1,0 +1,164 @@
+### PRODUCTS
+### Add a new junk shop product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Scrap Iron",
+  "image": "https://example.com/images/scrap-iron.jpg",
+  "category": "Metal",
+  "purchasePrice": 10.50,
+  "sellingPrice": 15.00,
+  "quantity": 200,
+  "unit": "kgs",
+  "description": "Collected scrap iron from construction sites."
+}
+
+
+### Add used aluminum cans
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Used Aluminum Cans",
+  "image": "https://example.com/images/aluminum-cans.jpg",
+  "category": "Metal",
+  "purchasePrice": 5.00,
+  "sellingPrice": 8.00,
+  "quantity": 500,
+  "unit": "pcs",
+  "description": "Cleaned and sorted aluminum cans from residential areas."
+}
+
+
+### Get all products
+GET http://localhost:3000/products
+
+
+### Get a single product by ID
+GET http://localhost:3000/products/68df53abbefb244f00062619
+
+
+
+### Get a single product by ID
+GET http://localhost:3000/products/68deb5f5befb244f000625f7
+
+
+### Update a product by ID
+PATCH http://localhost:3000/products/68deb5f5befb244f000625f7
+Content-Type: application/json
+
+{
+  "name": "Updated Scrap Iron",
+  "image": "https://example.com/images/updated-scrap-iron.jpg",
+  "category": "Metal",
+  "purchasePrice": 12.00,
+  "sellingPrice": 18.00,
+  "quantity": 150,
+  "unit": "kgs",
+  "description": "Updated description for scrap iron."
+}
+
+
+### Delete a product by ID
+DELETE http://localhost:3000/products/68deb5f5befb244f000625f7
+
+
+
+### Inventory Transactions
+### Create Inventory Transaction
+POST http://localhost:3000/inventory/
+Content-Type: application/json
+
+{
+  "productId": "68df53abbefb244f00062619",
+  "transactionType": "In",
+  "quantityChange": 10
+}
+
+
+### Get All Inventory Transactions
+GET http://localhost:3000/inventory
+
+
+
+### Get Inventory Transaction by ID
+GET http://localhost:3000/inventory/68e097f3d535d004450afccf
+
+
+### Delete Inventory Transaction
+DELETE http://localhost:3000/inventory/68e097f3d535d004450afccf
+
+
+
+
+
+### SALES
+### Create a sales transaction
+POST http://localhost:3000/sales-transactions
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "68deb602befb244f000625f9",
+      "quantity": 2
+    },
+    {
+      "productId": "68df53abbefb244f00062619",
+      "quantity": 1
+    }
+  ]
+}
+
+
+### Create a sales transaction
+POST http://localhost:3000/sales-transactions
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "68deb602befb244f000625f9",
+      "quantity": 7
+    },
+    {
+      "productId": "68df53abbefb244f00062619",
+      "quantity": 10
+    }
+  ]
+}
+
+
+### Get all sales transactions
+GET http://localhost:3000/sales-transactions
+Accept: application/json
+
+
+### Get a single sales transaction by ID
+GET http://localhost:3000/sales-transactions/68df53d1befb244f0006261c
+Accept: application/json
+
+
+### Update a sales transaction
+PATCH http://localhost:3000/sales-transactions/68df53d1befb244f0006261c
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "652fcabc1234567890abcd12",
+      "quantity": 5
+    },
+    {
+      "productId": "652fcabc1234567890abcd13",
+      "quantity": 2
+    }
+  ]
+}
+
+
+### Delete a sales transaction by ID
+DELETE http://localhost:3000/sales-transactions/68df53d1befb244f0006261c
+Accept: application/json
+

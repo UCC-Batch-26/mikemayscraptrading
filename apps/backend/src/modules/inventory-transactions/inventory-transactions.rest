@@ -1,0 +1,47 @@
+### Request 1: Incoming inventory
+POST http://localhost:3000/inventory
+Content-Type: application/json
+
+{
+  "transactionType": "In",
+  "quantityChange": 150
+}
+
+### Request 2: Outgoing inventory
+POST http://localhost:3000/inventory
+Content-Type: application/json
+
+{
+  "transactionType": "Out",
+  "quantityChange": 50
+}
+
+
+### Get all inventory transactions
+GET http://localhost:3000/inventory
+Accept: application/json
+
+
+### Get inventory transaction by ID
+GET http://localhost:3000/inventory/68deb817befb244f00062604
+Accept: application/json
+
+
+### Get inventory transaction by ID
+GET http://localhost:3000/inventory/68deb81cbefb244f00062606
+Accept: application/json
+
+
+### Update inventory transaction
+PATCH http://localhost:3000/inventory/68deb817befb244f00062604
+Content-Type: application/json
+
+{
+  "transactionType": "Out",
+  "quantityChange": 75
+}
+
+
+### Delete inventory transaction by ID
+DELETE http://localhost:3000/inventory/68df4d8dbefb244f00062614
+Accept: application/json
