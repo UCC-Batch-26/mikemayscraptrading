@@ -1,6 +1,5 @@
 import { Link } from 'react-router';
 import { FileClock, FileCog, ShoppingCart, Calculator } from "lucide-react";
-import { NotebookText } from 'lucide-react';
 
 export function IconMenu() {
   const menuItems = [
