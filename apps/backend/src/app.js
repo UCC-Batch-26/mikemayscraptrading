@@ -15,17 +15,21 @@ const PORT = process.env.PORT || 3000;
 
 app.set('port', PORT);
 
+app.get('/ping', (_, res) => {
+  res.status(200).json({
+    message: 'PONG',
+  });
+});
+
 // All Global middleware
 app.use(
   cors({
     origin: (origin, callback) => {
-      // eslint-disable-next-line
-      // @todo: Add your whitelisted URL here
-      if (!origin) {
-        return callback(null, true);
-      }
-
-      const whitelist = ['http://localhost:5173', 'https://www.mikemayscraptrading.com/'];
+      const whitelist = [
+        'http://localhost:5173',
+        'https://mikemayscraptrading.com',
+        'https://www.mikemayscraptrading.com',
+      ];
       if (whitelist.indexOf(origin) === -1) {
         callback(new Error(`Not allowed by CORS: ${origin}`));
       } else {
@@ -40,12 +44,6 @@ app.use(morgan('combined'));
 
 // Database connection
 await db(process.env.DB_URI);
-
-app.get('/ping', (req, res) => {
-  res.status(200).json({
-    message: 'PONG',
-  });
-});
 
 // Inventory route
 app.use('/inventory', inventoryRoutes);
