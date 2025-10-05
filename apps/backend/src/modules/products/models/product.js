@@ -11,7 +11,7 @@ const productSchema = new Schema(
     },
     image: {
       type: String,
-      default: '',
+      default: 'https://dummyimage.com/150x150/cccccc/ffffff&text=No+Image',
     },
     category: {
       type: String,

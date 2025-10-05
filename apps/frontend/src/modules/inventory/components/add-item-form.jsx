@@ -72,11 +72,11 @@ export default function AddItemForm() {
         </div>
 
         <div>
-          <label htmlFor="category" className="sr-only">
-            Category
+          <label htmlFor="unit" className="sr-only">
+            Unit
           </label>
           <select
-            id="category" name="category"
+            id="unit" name="unit"
             required className="w-full px-3 py-3 border rounded-md focus:outline-none focus:ring focus:border-yellow-500" defaultValue=""
           >
             <option value="" disabled>
