@@ -49,7 +49,7 @@ await db(process.env.DB_URI);
 app.use('/inventory', inventoryRoutes);
 
 // Product route
-app.use('/products', productRoutes);
+app.use('/api/items', productRoutes);
 
 // Sales route
 app.use('/sales-transactions', salesTransactionRoutes);

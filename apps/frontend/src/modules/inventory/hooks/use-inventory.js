@@ -46,7 +46,7 @@ function reducer(state, action) {
   }
 }
 
-const INVENTORY_URL = `${import.meta.env.VITE_BACKEND_URL}/api/items`;
+const INVENTORY_URL = `${import.meta.env.VITE_BACKEND_URL}/api/items/`;
 
 export function useInventory() {
   const [state, dispatch] = useReducer(reducer, initialState);
