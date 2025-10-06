@@ -8,20 +8,39 @@ export default function AddItemForm() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
     if (!formRef.current) return;
 
     const formData = new FormData(formRef.current);
+    const payload = Object.fromEntries(formData.entries());
+
     setIsPending(true);
 
-    // @todo: Implement actual submission logic here
-    console.log('Submitting:', Object.fromEntries(formData.entries()));
+    const INVENTORY_URL = import.meta.env.VITE_BACKEND_URL + '/api/items/';
 
-    setTimeout(() => {
-      setIsPending(false);
+    try {
+      const res = await fetch(INVENTORY_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.message || 'Failed to add item');
+      }
+
+      const data = await res.json();
+      console.log('Item added on backend:', data);
+
+      // Only reset form and update frontend state after success
       formRef.current.reset();
-    }, 1000);
+    } catch (err) {
+      console.error('Error adding item:', err);
+    } finally {
+      setIsPending(false);
+    }
   };
+
 
   return (
     <form onSubmit={onSubmit} ref={formRef} className="space-y-4 max-w-md mx-auto">

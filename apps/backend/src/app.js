@@ -30,6 +30,11 @@ app.use(
         'https://mikemayscraptrading.com',
         'https://www.mikemayscraptrading.com',
       ];
+
+      if (!origin) {
+        return callback(null, true);
+      }
+
       if (whitelist.indexOf(origin) === -1) {
         callback(new Error(`Not allowed by CORS: ${origin}`));
       } else {
