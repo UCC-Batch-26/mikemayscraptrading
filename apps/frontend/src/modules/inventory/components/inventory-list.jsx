@@ -40,14 +40,14 @@ export function InventoryList() {
     );
   }
 
-  if (!data?.length) {
+  if (!data?.items?.length) {
     return <EmptyState />;
   }
 
   return (
     <>
-      {data.map((item) => (
-        <InventoryListItem name={item.name} id={item._id} key={item._id} />
+      {data.items.map((item) => (
+        <InventoryListItem name={item.name} id={item._id} key={item._id} category={item.category} quantity={item.quantity} image={item.image} />
       ))}
     </>
   );

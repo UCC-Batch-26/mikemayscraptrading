@@ -11,7 +11,7 @@ const productSchema = new Schema(
     },
     image: {
       type: String,
-      default: '',
+      default: 'https://placehold.co/400?text=No+Image',
     },
     category: {
       type: String,
@@ -22,9 +22,11 @@ const productSchema = new Schema(
     },
     purchasePrice: {
       type: Number,
+      default: 0,
     },
     sellingPrice: {
       type: Number,
+      default: 0,
     },
     quantity: {
       type: Number,

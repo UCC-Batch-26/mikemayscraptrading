@@ -1,7 +1,8 @@
 ### PRODUCTS
 ### Add a new junk shop product
-POST http://localhost:3000/products
+POST http://localhost:3000/api/items/
 Content-Type: application/json
+Origin: http://localhost:5173
 
 {
   "name": "Scrap Iron",
@@ -16,8 +17,9 @@ Content-Type: application/json
 
 
 ### Add used aluminum cans
-POST http://localhost:3000/products
+POST http://localhost:3000/api/items/
 Content-Type: application/json
+Origin: http://localhost:5173
 
 {
   "name": "Used Aluminum Cans",
@@ -32,8 +34,8 @@ Content-Type: application/json
 
 
 ### Get all products
-GET http://localhost:3000/products
-
+GET http://localhost:3000/api/items/
+Origin: http://localhost:5173
 
 ### Get a single product by ID
 GET http://localhost:3000/products/68df53abbefb244f00062619

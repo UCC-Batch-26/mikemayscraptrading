@@ -10,7 +10,12 @@ const router = new Router();
 
 router.get('/', getAllProducts);
 router.get('/:id', getProduct);
-router.post('/', addProduct);
+router.post('/', (req, res, next) => {
+  console.log('✅ Received POST /');
+  console.log('📦 Request body:', req.body);
+  next();
+}, addProduct);
+
 router.patch('/:id', filterUpdateFields, editProduct);
 router.delete('/:id', deleteProduct);
 
